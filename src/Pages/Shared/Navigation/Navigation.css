@@ -1,0 +1,18 @@
+.nav-items{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;   
+}
+.nav-items .navLinks:hover{
+    border-bottom: 2px solid #111430; 
+    
+}
+
+.login-btn{
+    width: 135px;
+    height: 40px;
+    background-color: #111430;
+    border-radius: 5px;
+    color: white;
+    border: 0;
+
+}
