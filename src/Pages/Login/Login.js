@@ -48,7 +48,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <NavLink to="/regiser" ><span className='py-3'>New user? Please go for register account</span></NavLink>
+            <NavLink to="/register" ><span className='py-3'>New user? Please go for register account</span></NavLink>
             <div className='d-flex flex-column justify-content-center align-items-center p-3'>
 
                 <button className='google-btn' onClick={handleGoogleSignIn}><FaGoogle className='m-2'></FaGoogle>continue with Goolge</button>

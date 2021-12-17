@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 initalizeAuth();
 
@@ -16,10 +17,12 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    const [isEmailExits, setIsEmailExits] = useState(false);
+
 
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
-    console.log(user)
+
     // google SignIn handle
     const googleSignInHandler = (location, navigate) => {
 
@@ -33,6 +36,49 @@ const useFirebase = () => {
                 setUser(user);
                 const destination = location?.state?.from || '/';
                 navigate(destination);
+
+                axios.get(`http://localhost:5000/users/${user?.email}`)
+                    .then(function (response) {
+                        // handle success
+                        console.log(response.data.message)
+                        if (response.data.message === false) {
+
+                            axios.post('http://localhost:5000/users', {
+                                displayName: user.displayName,
+                                email: user.email
+                            }).then(function (response) {
+                                console.log(response);
+                            }).catch(function (error) {
+                                setError(error.message);
+                            });
+                        }
+                        else {
+                            console.log(true);
+                        }
+
+
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .then(function () {
+                        // always executed
+                    });
+
+
+                // if (!user.email) {
+
+                //     axios.post('http://localhost:5000/users', {
+                //         displayName: user.displayName,
+                //         email: user.email
+                //     }).then(function (response) {
+                //         console.log(response);
+                //     }).catch(function (error) {
+                //         setError(error.message);
+                //     });
+                // }
+
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
@@ -83,6 +129,8 @@ const useFirebase = () => {
             setError(error.message);
         });
     }
+
+
     return {
         googleSignInHandler,
         googleLogOuthandler,
