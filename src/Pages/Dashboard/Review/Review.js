@@ -28,7 +28,7 @@ const Review = () => {
 
                 <textarea  {...register("description")} placeholder="description" className="form-control p-2 m-3 w-75 mx-auto bg-light" required />
 
-                <input {...register("picture")} placeholder="Image URL" className="form-control p-2 m-3  mx-auto bg-light" required />
+                <input {...register("img_url")} placeholder="Image URL" className="form-control p-2 m-3  mx-auto bg-light w-75" required />
 
                 <input type="submit" value="Submit" className="login-btn " />
             </form>
