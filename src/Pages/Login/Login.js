@@ -6,11 +6,12 @@ import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 
 const Login = () => {
 
-    const { googleSignInHandler } = useAuth();
+    const { googleSignInHandler, isLoading } = useAuth();
     const { register, handleSubmit, reset } = useForm();
 
     const location = useLocation();
@@ -23,6 +24,9 @@ const Login = () => {
     };
     const handleGoogleSignIn = () => {
         googleSignInHandler(location, navigate);
+    }
+    if (isLoading) {
+        return <Spinner animation="border" />
     }
     return (
         <div className='container-fluid py-5 text-center'>

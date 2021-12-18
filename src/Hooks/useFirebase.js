@@ -17,7 +17,7 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
-    const [isEmailExits, setIsEmailExits] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -26,12 +26,9 @@ const useFirebase = () => {
     // google SignIn handle
     const googleSignInHandler = (location, navigate) => {
 
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                // const credential = GoogleAuthProvider.credentialFromResult(result);
-                // const token = credential.accessToken;
-                // The signed-in user info.
                 const user = result.user;
                 setUser(user);
                 const destination = location?.state?.from || '/';
@@ -56,7 +53,6 @@ const useFirebase = () => {
                             console.log(true);
                         }
 
-
                     })
                     .catch(function (error) {
                         // handle error
@@ -64,37 +60,23 @@ const useFirebase = () => {
                     })
                     .then(function () {
                         // always executed
+
                     });
 
-
-                // if (!user.email) {
-
-                //     axios.post('http://localhost:5000/users', {
-                //         displayName: user.displayName,
-                //         email: user.email
-                //     }).then(function (response) {
-                //         console.log(response);
-                //     }).catch(function (error) {
-                //         setError(error.message);
-                //     });
-                // }
-
-                // ...
             }).catch((error) => {
                 // Handle Errors here.
-                // const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(errorMessage);
-                // The email of the user's account used.
-                // const email = error.email;
-                // The AuthCredential type that was used.
-                // const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
+
+            }).finally(function () {
+                // always executed
+                setIsLoading(false);
             });
     }
 
     // auth observer
     useEffect(() => {
+
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
@@ -103,6 +85,7 @@ const useFirebase = () => {
                 // User is signed out
                 setUser({});
             }
+            setIsLoading(false);
         });
     }, [auth])
 
@@ -120,13 +103,15 @@ const useFirebase = () => {
     }
     // google log out handle
     const googleLogOuthandler = () => {
-
+        setIsLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
             setUser({})
         }).catch((error) => {
             // An error happened.
             setError(error.message);
+        }).finally(() => {
+            setIsLoading(false);
         });
     }
 
@@ -135,7 +120,8 @@ const useFirebase = () => {
         googleSignInHandler,
         googleLogOuthandler,
         user,
-        error
+        error,
+        isLoading
     };
 
 

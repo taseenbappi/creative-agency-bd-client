@@ -22,6 +22,7 @@ const Navigation = () => {
                         <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#portfolio">Our Portfolio</Nav.Link>
                         <Nav.Link className="navLinks fw-bolder" href="#pricing">Our Team</Nav.Link>
                         <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#contact">Contact Us</Nav.Link>
+                        {user?.email && <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/dashboard">Dashboard</Nav.Link>}
                         {
                             user && <Nav.Link className="fw-bolder" > {user?.displayName}</Nav.Link>
 
