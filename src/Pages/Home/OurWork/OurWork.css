@@ -1,0 +1,13 @@
+.work-header-txt{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: white;
+}
+.work-header-txt span{
+    color: #7AB259;
+}
+
+.our-work-segment{
+    background-color: #111430;
+}

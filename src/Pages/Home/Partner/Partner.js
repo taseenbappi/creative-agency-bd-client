@@ -13,7 +13,8 @@ const Partner = () => {
                 <img src={partnerImg1} alt="" className="img-fluid  p-3" />
             </div>
             <div className="col-6 col-lg-2 col-md-2 col-sm-6 ">
-                <img src={partnerImg2} alt="" className="img-fluid p-3" />
+                <img src={partnerImg5} alt="" className="img-fluid p-3" />
+
             </div>
             <div className="col-6 col-lg-2 col-md-2 col-sm-6 ">
                 <img src={partnerImg3} alt="" className="img-fluid p-3" />
@@ -22,7 +23,7 @@ const Partner = () => {
                 <img src={partnerImg4} alt="" className="img-fluid p-3" />
             </div>
             <div className="col-6 col-lg-2 col-md-2 col-sm-6 ">
-                <img src={partnerImg5} alt="" className="img-fluid p-3" />
+                <img src={partnerImg2} alt="" className="img-fluid p-3" />
             </div>
         </div>
     );
