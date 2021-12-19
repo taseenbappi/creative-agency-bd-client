@@ -1,9 +1,9 @@
-import axios from 'axios';
+
 import React from 'react';
 import './Product.css';
 
 const ServiceRow = (props) => {
-    const { _id, customer_name, email, phone, service_title, project_details } = props.serviceItem;
+    const { customer_name, email, service_title, project_details } = props.serviceItem;
     // const deleteProductHandler = (id) => {
     //     const userConfirmation = window.confirm("Are you sure want to delete your Product?");
 

@@ -12,7 +12,7 @@ const OrderPlaced = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data);
+
         axios.post('https://glacial-gorge-61316.herokuapp.com/placedOrder', data)
             .then(function (response) {
                 if (response.data.insertedId) {
@@ -21,7 +21,7 @@ const OrderPlaced = () => {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+
             });
     };
 

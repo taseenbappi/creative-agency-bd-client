@@ -2,7 +2,7 @@ import React from 'react';
 
 const OrderRow = (props) => {
 
-    const { _id, customer_name, email, price, service_title, project_details } = props.order;
+    const { customer_name, email, price, service_title, project_details } = props.order;
 
     return (
         <tr className="justify-content-center align-items-center ">

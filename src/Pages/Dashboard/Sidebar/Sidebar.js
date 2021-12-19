@@ -11,7 +11,7 @@ import ServiceList from '../SerivceList/ServiceList';
 const Sidebar = () => {
     const { user } = useAuth();
     const [isAdmin, setIsAdmin] = useState(false);
-    console.log(user);
+
     useEffect(() => {
         fetch(`https://glacial-gorge-61316.herokuapp.com/users/admin/${user.email}`)
             .then(res => res.json())

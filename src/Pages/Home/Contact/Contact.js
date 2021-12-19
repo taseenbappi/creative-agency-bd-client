@@ -6,7 +6,7 @@ import { IoIosSend } from "react-icons/io";
 const Contact = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data)
+
 
     };
     return (

@@ -7,7 +7,7 @@ const AddService = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data)
+
 
         axios.post('https://glacial-gorge-61316.herokuapp.com/services', data)
             .then(function (response) {
@@ -17,7 +17,7 @@ const AddService = () => {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+
             });
     };
     return (

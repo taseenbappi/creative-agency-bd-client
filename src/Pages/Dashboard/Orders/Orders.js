@@ -7,7 +7,7 @@ const Orders = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth()
     const onSubmit = data => {
-        console.log(data);
+
         // send data to database
         axios.post('https://glacial-gorge-61316.herokuapp.com/order', data)
             .then(function (response) {
@@ -17,7 +17,7 @@ const Orders = () => {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+
             });
     };
     return (

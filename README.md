@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+<h1 align="center">Hi 👋, I'm Taseenul Hoque bappi</h1>
+<h3 align="center">A passionate MERN stack developer from Bangladesh</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">"Baby Shopper BD" is a baby toys comapany in Bangladesh.</h1>
+<h3 align="center">We are provide our best service and best baby toys</h3>
 
-## Available Scripts
+Please visit our website (https://baby-shopper-bd.web.app/).
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- You can buy any type of toys easily.
+- Your can add comment to show our website
+- You can cancel your order by My Order page
+- "Baby Shopper BD" offers its clients an affordable pricing policy.
+- You can easily login with your email & password.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=taseenbappi&label=Profile%20views&color=0e75b6&style=flat" alt="taseenbappi" /> </p>
 
-### `npm run build`
+<p align="left"> <a href="https://twitter.com/taseen_bappi" target="blank"><img src="https://img.shields.io/twitter/follow/taseen_bappi?logo=twitter&style=for-the-badge" alt="taseen_bappi" /></a> </p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://twitter.com/taseen_bappi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="taseen_bappi" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/taseenbappi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="taseenbappi" height="30" width="40" /></a>
+<a href="https://fb.com/taseen.bappi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="taseen.bappi" height="30" width="40" /></a>
+<a href="https://instagram.com/taseen.bappi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="taseen.bappi" height="30" width="40" /></a>
+</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

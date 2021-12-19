@@ -5,7 +5,7 @@ import {
     signOut,
     onAuthStateChanged,
     GoogleAuthProvider,
-    updateProfile
+
 } from "firebase/auth";
 
 import { useEffect, useState } from "react";
@@ -37,7 +37,7 @@ const useFirebase = () => {
                 axios.get(`https://glacial-gorge-61316.herokuapp.com/users/${user?.email}`)
                     .then(function (response) {
                         // handle success
-                        console.log(response.data.message)
+
                         if (response.data.message === false) {
 
                             axios.post('https://glacial-gorge-61316.herokuapp.com/users', {
@@ -45,19 +45,19 @@ const useFirebase = () => {
                                 email: user.email,
                                 role: "user"
                             }).then(function (response) {
-                                console.log(response);
+
                             }).catch(function (error) {
                                 setError(error.message);
                             });
                         }
                         else {
-                            console.log(true);
+
                         }
 
                     })
                     .catch(function (error) {
                         // handle error
-                        console.log(error);
+
                     })
                     .then(function () {
                         // always executed
@@ -91,17 +91,17 @@ const useFirebase = () => {
     }, [auth])
 
     // user profile Update
-    const profileUpdate = () => {
-        updateProfile(auth.currentUser, {
-            displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-        }).then(() => {
-            // Profile updated!
+    // const profileUpdate = () => {
+    //     updateProfile(auth.currentUser, {
+    //         displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+    //     }).then(() => {
+    //         // Profile updated!
 
-        }).catch((error) => {
-            // An error occurred
-            setError(error.message);
-        });
-    }
+    //     }).catch((error) => {
+    //         // An error occurred
+    //         setError(error.message);
+    //     });
+    // }
     // google log out handle
     const googleLogOuthandler = () => {
         setIsLoading(true);

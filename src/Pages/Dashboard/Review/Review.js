@@ -7,7 +7,7 @@ const Review = () => {
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth()
     const onSubmit = data => {
-        console.log(data);
+
         axios.post('https://glacial-gorge-61316.herokuapp.com/reviews', data)
             .then(function (response) {
                 if (response.data.insertedId) {
@@ -16,7 +16,7 @@ const Review = () => {
                 }
             })
             .catch(function (error) {
-                console.log(error);
+
             });
     };
     return (

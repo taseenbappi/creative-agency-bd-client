@@ -7,7 +7,6 @@ const OrderList = () => {
 
     const [orderList, SetOrderList] = useState();
 
-    console.log(orderList);
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

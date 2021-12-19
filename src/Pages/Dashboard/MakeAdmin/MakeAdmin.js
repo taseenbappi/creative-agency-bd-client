@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+
         // update request for admin role
         axios.put('https://glacial-gorge-61316.herokuapp.com/users/admin/', data)
             .then(response => {
