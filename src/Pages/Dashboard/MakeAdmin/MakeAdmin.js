@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     const onSubmit = data => {
         console.log(data);
         // update request for admin role
-        axios.put('http://localhost:5000/users/admin/', data)
+        axios.put('https://glacial-gorge-61316.herokuapp.com/users/admin/', data)
             .then(response => {
                 if (response.data.modifiedCount) {
                     alert("Admin added successfully");

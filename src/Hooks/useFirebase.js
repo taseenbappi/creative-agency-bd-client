@@ -34,13 +34,13 @@ const useFirebase = () => {
                 const destination = location?.state?.from || '/';
                 navigate(destination);
 
-                axios.get(`http://localhost:5000/users/${user?.email}`)
+                axios.get(`https://glacial-gorge-61316.herokuapp.com/users/${user?.email}`)
                     .then(function (response) {
                         // handle success
                         console.log(response.data.message)
                         if (response.data.message === false) {
 
-                            axios.post('http://localhost:5000/users', {
+                            axios.post('https://glacial-gorge-61316.herokuapp.com/users', {
                                 displayName: user.displayName,
                                 email: user.email,
                                 role: "user"

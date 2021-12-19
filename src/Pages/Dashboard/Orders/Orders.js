@@ -9,7 +9,7 @@ const Orders = () => {
     const onSubmit = data => {
         console.log(data);
         // send data to database
-        axios.post('http://localhost:5000/order', data)
+        axios.post('https://glacial-gorge-61316.herokuapp.com/order', data)
             .then(function (response) {
                 if (response.data.insertedId) {
                     alert('Order Confirmed success!!');

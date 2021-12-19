@@ -8,7 +8,7 @@ const Review = () => {
     const { user } = useAuth()
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://glacial-gorge-61316.herokuapp.com/reviews', data)
             .then(function (response) {
                 if (response.data.insertedId) {
                     alert('Review Send Successfully!!');

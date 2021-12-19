@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import Navigation from '../../Shared/Navigation/Navigation';
 import AddService from '../AddService/AddService';
@@ -10,7 +10,16 @@ import ServiceList from '../SerivceList/ServiceList';
 
 const Sidebar = () => {
     const { user } = useAuth();
+    const [isAdmin, setIsAdmin] = useState(false);
     console.log(user);
+    useEffect(() => {
+        fetch(`https://glacial-gorge-61316.herokuapp.com/users/admin/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setIsAdmin(data.message)
+            })
+    }, [user])
+
     return (
         <>
             <Navigation></Navigation>
@@ -31,16 +40,16 @@ const Sidebar = () => {
                 <div className="col-12 col-lg-4 col-md-4 col-sm-12 p-3">
                     <div className="list-group" id="list-tab" role="tablist">
 
-                        <a className="list-group-item list-group-item-action active" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order">Order</a>
+                        {!isAdmin && <a className="list-group-item list-group-item-action active" id="list-order-list" data-bs-toggle="list" href="#list-order" role="tab" aria-controls="list-order">Order</a>}
 
-                        <a className="list-group-item list-group-item-action " id="list-orderList-list" data-bs-toggle="list" href="#list-orderList" role="tab" aria-controls="list-orderList">My Order</a>
+                        {!isAdmin && <a className="list-group-item list-group-item-action " id="list-orderList-list" data-bs-toggle="list" href="#list-orderList" role="tab" aria-controls="list-orderList">My Order</a>}
 
-                        <a className="list-group-item list-group-item-action" id="list-review-list" data-bs-toggle="list" href="#list-review" role="tab" aria-controls="list-review">Review</a>
+                        {!isAdmin && <a className="list-group-item list-group-item-action" id="list-review-list" data-bs-toggle="list" href="#list-review" role="tab" aria-controls="list-review">Review</a>}
 
-                        <a className="list-group-item list-group-item-action" id="list-service-list" data-bs-toggle="list" href="#list-service" role="tab" aria-controls="list-service">Service List</a>
+                        {isAdmin && <a className="list-group-item list-group-item-action" id="list-service-list" data-bs-toggle="list" href="#list-service" role="tab" aria-controls="list-service">Manage Order Service</a>}
 
-                        <a className="list-group-item list-group-item-action" id="list-admin-list" data-bs-toggle="list" href="#list-admin" role="tab" aria-controls="list-admin">Make Admin</a>
-                        <a className="list-group-item list-group-item-action" id="list-addService-list" data-bs-toggle="list" href="#list-addService" role="tab" aria-controls="list-addService">Add Service</a>
+                        {isAdmin && <a className="list-group-item list-group-item-action" id="list-admin-list" data-bs-toggle="list" href="#list-admin" role="tab" aria-controls="list-admin">Make Admin</a>}
+                        {isAdmin && <a className="list-group-item list-group-item-action" id="list-addService-list" data-bs-toggle="list" href="#list-addService" role="tab" aria-controls="list-addService">Add Service</a>}
 
                     </div>
                 </div>

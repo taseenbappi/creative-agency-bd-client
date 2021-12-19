@@ -3,7 +3,7 @@ import OrderRow from '../OrderRow/OrderRow';
 
 
 const OrderList = () => {
-    const url = "http://localhost:5000/order";
+    const url = "https://glacial-gorge-61316.herokuapp.com/order";
 
     const [orderList, SetOrderList] = useState();
 

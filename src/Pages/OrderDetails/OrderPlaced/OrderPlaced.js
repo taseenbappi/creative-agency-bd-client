@@ -13,7 +13,7 @@ const OrderPlaced = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/placedOrder', data)
+        axios.post('https://glacial-gorge-61316.herokuapp.com/placedOrder', data)
             .then(function (response) {
                 if (response.data.insertedId) {
                     alert('Order placed successfully!!');
@@ -26,7 +26,7 @@ const OrderPlaced = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://glacial-gorge-61316.herokuapp.com/services/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [serviceId])

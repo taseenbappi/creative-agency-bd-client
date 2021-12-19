@@ -11,6 +11,7 @@ import Login from "./Pages/Login/Login";
 import OrderPlaced from "./Pages/OrderDetails/OrderPlaced/OrderPlaced";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Register/Register";
+import PageNotFound from "./Pages/Shared/PageNotFound/PageNotFound";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
             </Route>
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
             </Route>
-
+            <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
           </Routes>
         </BrowserRouter>
 

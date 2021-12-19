@@ -18,19 +18,26 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto nav-items">
-                        <Nav.Link active className="navLinks fw-bolder" as={HashLink} to="/home">Home</Nav.Link>
-                        <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#portfolio">Our Portfolio</Nav.Link>
-                        <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#services">Our Service</Nav.Link>
-                        <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#contact">Contact Us</Nav.Link>
-                        {user?.email && <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/dashboard">Dashboard</Nav.Link>}
+
+                        <Nav.Link active className="navLinks fw-bolder d-flex justify-content-center align-items-center" as={HashLink} to="/home">Home</Nav.Link>
+                        <Nav.Link className="navLinks fw-bolder d-flex justify-content-center align-items-center" as={HashLink} to="/home#portfolio">Our Portfolio</Nav.Link>
+                        <Nav.Link className="navLinks fw-bolder d-flex justify-content-center align-items-center" as={HashLink} to="/home#services">Our Service</Nav.Link>
+                        <Nav.Link className="navLinks fw-bolder d-flex justify-content-center align-items-center" as={HashLink} to="/home#contact">Contact Us</Nav.Link>
+                        {user?.email && <Nav.Link className="navLinks fw-bolder d-flex justify-content-center align-items-center" as={HashLink} to="/dashboard">Dashboard</Nav.Link>}
                         {
-                            user && <Nav.Link className="fw-bolder" > {user?.displayName}</Nav.Link>
+                            user?.email && <Nav.Link className="fw-bolder d-flex justify-content-center align-items-center" > {user?.displayName}  </Nav.Link>
 
                         }
                         {
-                            !user.displayName ? <Link to="/login"><Button className="login-btn">Login<IoIosLogIn className='m-1'></IoIosLogIn></Button></Link>
+                            user?.email && <Nav.Link className="fw-bolder" >
+                                <img src={user.photoURL} alt="" height="45" className='shadow-sm rounded-circle d-flex justify-content-center align-items-center' />
+                            </Nav.Link>
+
+                        }
+                        {
+                            !user?.email ? <Link to="/login"><Button className="login-btn">Login<IoIosLogIn className='m-1'></IoIosLogIn></Button></Link>
                                 :
-                                <Button className="login-btn" onClick={googleLogOuthandler}>Logout<IoIosLogOut className='m-1'></IoIosLogOut></Button>
+                                <Nav.Link><Button className="login-btn" onClick={googleLogOuthandler}>Logout<IoIosLogOut className='m-1'></IoIosLogOut></Button></Nav.Link>
 
                         }
 

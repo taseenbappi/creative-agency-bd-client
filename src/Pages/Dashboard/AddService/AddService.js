@@ -9,7 +9,7 @@ const AddService = () => {
     const onSubmit = data => {
         console.log(data)
 
-        axios.post('http://localhost:5000/services', data)
+        axios.post('https://glacial-gorge-61316.herokuapp.com/services', data)
             .then(function (response) {
                 if (response.data.insertedId) {
                     alert('service added successfully!!');
