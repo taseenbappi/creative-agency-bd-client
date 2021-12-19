@@ -3,7 +3,7 @@ import ServiceRow from '../serviceRow/ServiceRow';
 import './ServiceList.css';
 
 const ServiceList = () => {
-    const [serviceList, setServiceList] = useState();
+    const [serviceList, setServiceList] = useState([]);
 
     useEffect(() => {
         fetch("https://glacial-gorge-61316.herokuapp.com/placedOrder")

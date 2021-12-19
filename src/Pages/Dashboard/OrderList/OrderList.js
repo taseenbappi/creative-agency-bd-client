@@ -6,9 +6,9 @@ import OrderRow from '../OrderRow/OrderRow';
 const OrderList = () => {
 
     const { user } = useAuth();
+    const [orderList, SetOrderList] = useState([]);
 
-    const [orderList, SetOrderList] = useState();
-    const url = `https://glacial-gorge-61316.herokuapp.com/order/${user?.email}`;
+    const url = `https://glacial-gorge-61316.herokuapp.com/user/order?email=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -34,7 +34,7 @@ const OrderList = () => {
                     </thead>
                     <tbody>
                         {
-                            orderList?.map(order => <OrderRow
+                            orderList.map(order => <OrderRow
                                 key={order._id}
                                 order={order}
                             ></OrderRow>)
