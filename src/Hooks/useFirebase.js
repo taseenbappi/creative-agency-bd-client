@@ -5,6 +5,9 @@ import {
     signOut,
     onAuthStateChanged,
     GoogleAuthProvider,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    updateProfile
 
 } from "firebase/auth";
 
@@ -17,6 +20,7 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -75,6 +79,76 @@ const useFirebase = () => {
             });
     }
 
+    // user email and password register hangler
+    const registerHangler = (data, location, navigate) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, data.email, data.password)
+
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                const newUser = { displayName: data.displayName, email: data.email, role: "user" };
+                setUser(newUser);
+
+                // send user info to database
+                axios.post('https://glacial-gorge-61316.herokuapp.com/users', newUser)
+                    .then(function (response) {
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+
+                setAuthError("");
+                const destination = location?.state?.from || "/home";
+                navigate(destination);
+                // user profile Update
+                updateProfile(auth.currentUser, {
+                    displayName: data.displayName
+                }).then(() => {
+                    // Profile updated!
+
+                }).catch((error) => {
+                    // An error occurred
+                    setError(error.message);
+                });
+
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
+                // ..
+            }).finally(() => setIsLoading(false));
+    }
+    // register users login hangler
+    const registerUserSignInHangler = (email, password, location, navigate) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                setUser(user);
+                const destination = location?.state?.from || "/home";
+
+                if (email === "admin@admin.com") {
+                    navigate('/dashboard');
+                } else {
+                    navigate(destination);
+                }
+                // myHistory.replace(destination);
+                setAuthError("");
+
+                // ...
+            })
+            .catch((error) => {
+
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
+
+            }).finally(() => setIsLoading(false));
+    }
+
     // auth observer
     useEffect(() => {
 
@@ -120,6 +194,8 @@ const useFirebase = () => {
     return {
         googleSignInHandler,
         googleLogOuthandler,
+        registerHangler,
+        registerUserSignInHangler,
         user,
         error,
         isLoading

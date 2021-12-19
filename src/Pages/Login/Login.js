@@ -11,14 +11,14 @@ import { Spinner } from 'react-bootstrap';
 
 const Login = () => {
 
-    const { googleSignInHandler, isLoading } = useAuth();
+    const { googleSignInHandler, isLoading, registerUserSignInHangler } = useAuth();
     const { register, handleSubmit, reset } = useForm();
 
     const location = useLocation();
     const navigate = useNavigate();
 
     const onSubmit = data => {
-
+        registerUserSignInHangler(data.email, data.password, location, navigate);
         reset();
 
     };

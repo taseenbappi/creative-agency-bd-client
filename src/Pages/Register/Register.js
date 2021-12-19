@@ -5,17 +5,18 @@ import useAuth from '../../Hooks/useAuth';
 import './Register.css';
 import logo from "../../images/logo-1.svg";
 import { NavLink } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+
 
 const Register = () => {
-    const { googleSignInHandler } = useAuth();
+    const { registerHangler } = useAuth();
     const { register, handleSubmit, reset } = useForm();
 
     const location = useLocation();
     const navigate = useNavigate();
 
     const onSubmit = data => {
-
+        console.log(data.email, data.password)
+        registerHangler(data, location, navigate);
         reset();
 
     };
@@ -33,7 +34,7 @@ const Register = () => {
                             </div>
                             <div className="card-body">
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    <input type="text" {...register("name")} placeholder="Your name" className="form-control p-2 m-3  mx-auto bg-light" />
+                                    <input type="text" {...register("displayName")} placeholder="Your name" className="form-control p-2 m-3  mx-auto bg-light" />
                                     <input type="email" {...register("email")} placeholder="Email" className="form-control p-2 m-3  mx-auto bg-light" />
                                     <input type="password" {...register("password")} placeholder="Password" className="form-control p-2 m-3 mx-auto bg-light" />
                                     <input type="submit" value="Register" className="login-btn  mx-auto" />
