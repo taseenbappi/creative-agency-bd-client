@@ -42,7 +42,8 @@ const useFirebase = () => {
 
                             axios.post('http://localhost:5000/users', {
                                 displayName: user.displayName,
-                                email: user.email
+                                email: user.email,
+                                role: "user"
                             }).then(function (response) {
                                 console.log(response);
                             }).catch(function (error) {

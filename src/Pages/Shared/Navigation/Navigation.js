@@ -20,7 +20,7 @@ const Navigation = () => {
                     <Nav className="ms-auto nav-items">
                         <Nav.Link active className="navLinks fw-bolder" as={HashLink} to="/home">Home</Nav.Link>
                         <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#portfolio">Our Portfolio</Nav.Link>
-                        <Nav.Link className="navLinks fw-bolder" href="#pricing">Our Team</Nav.Link>
+                        <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#services">Our Service</Nav.Link>
                         <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/home#contact">Contact Us</Nav.Link>
                         {user?.email && <Nav.Link className="navLinks fw-bolder" as={HashLink} to="/dashboard">Dashboard</Nav.Link>}
                         {

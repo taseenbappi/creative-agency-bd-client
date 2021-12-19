@@ -8,16 +8,17 @@ const Orders = () => {
     const { user } = useAuth()
     const onSubmit = data => {
         console.log(data);
-        // axios.post('http://localhost:5000/placedOrder', data)
-        //     .then(function (response) {
-        //         if (response.data.insertedId) {
-        //             alert('Order placed successfully!!');
-        //             reset();
-        //         }
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+        // send data to database
+        axios.post('http://localhost:5000/order', data)
+            .then(function (response) {
+                if (response.data.insertedId) {
+                    alert('Order Confirmed success!!');
+                    reset();
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
     return (
         <div className=' border-top shadow border-3 rounded border-primary p-3'>

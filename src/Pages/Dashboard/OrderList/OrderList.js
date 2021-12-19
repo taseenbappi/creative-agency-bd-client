@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import ServiceRow from '../serviceRow/ServiceRow';
-import './ServiceList.css';
+import OrderRow from '../OrderRow/OrderRow';
 
-const ServiceList = () => {
-    const [serviceList, setServiceList] = useState();
-    console.log(serviceList);
+
+const OrderList = () => {
+    const url = "http://localhost:5000/order";
+
+    const [orderList, SetOrderList] = useState();
+
+    console.log(orderList);
     useEffect(() => {
-        fetch("http://localhost:5000/placedOrder")
+        fetch(url)
             .then(res => res.json())
-            .then(data => setServiceList(data));
+            .then(data => SetOrderList(data));
     }, [])
 
     return (
@@ -19,9 +22,10 @@ const ServiceList = () => {
                     <thead>
                         <tr className='bg-light table-header'>
                             {/* <th scope="col">#</th> */}
-                            <th scope="col">Customer Name</th>
+                            <th scope="col">Your Name</th>
                             <th scope="col">Email-ID</th>
-                            <th scope="col">Service</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">service_title</th>
                             <th scope="col">Project Details</th>
                             <th scope="col">Status</th>
 
@@ -29,10 +33,10 @@ const ServiceList = () => {
                     </thead>
                     <tbody>
                         {
-                            serviceList?.map(serviceItem => <ServiceRow
-                                key={serviceItem._id}
-                                serviceItem={serviceItem}
-                            ></ServiceRow>)
+                            orderList?.map(order => <OrderRow
+                                key={order._id}
+                                order={order}
+                            ></OrderRow>)
                         }
                     </tbody>
                 </table>
@@ -42,4 +46,4 @@ const ServiceList = () => {
     );
 };
 
-export default ServiceList;
+export default OrderList;

@@ -6,7 +6,7 @@ import Service from '../Service/Service';
 const Services = () => {
     const [services] = useServices();
     return (
-        <div className="container-fluid py-5">
+        <div className="container-fluid py-5" id='services'>
             <h1 className="service-header-txt">Provide awesome <span>services</span> </h1>
 
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex justify-content-center align-items-center container mx-auto py-5">
