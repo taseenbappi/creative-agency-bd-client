@@ -13,7 +13,7 @@ const OrderList = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => SetOrderList(data));
-    }, [])
+    }, [url])
 
     return (
         <div className="container-fluid p-0">

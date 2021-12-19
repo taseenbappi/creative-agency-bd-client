@@ -61,7 +61,7 @@ const useFirebase = () => {
                     })
                     .catch(function (error) {
                         // handle error
-
+                        authError(error.message)
                     })
                     .then(function () {
                         // always executed
@@ -86,7 +86,7 @@ const useFirebase = () => {
 
             .then((userCredential) => {
                 // Signed in 
-                const user = userCredential.user;
+                // const user = userCredential.user;
                 const newUser = { displayName: data.displayName, email: data.email, role: "user" };
                 setUser(newUser);
 
